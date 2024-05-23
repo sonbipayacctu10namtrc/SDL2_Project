@@ -1,0 +1,13 @@
+﻿  main.cpp
+D:\ConsoleApplication4\GameProjectSDL2\main.cpp(420,66): warning C4244: 'argument': conversion from 'const double' to 'int', possible loss of data
+D:\ConsoleApplication4\GameProjectSDL2\main.cpp(423,56): warning C4838: conversion from 'double' to 'int' requires a narrowing conversion
+D:\ConsoleApplication4\GameProjectSDL2\main.cpp(423,56): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+D:\ConsoleApplication4\GameProjectSDL2\main.cpp(423,66): warning C4838: conversion from 'float' to 'int' requires a narrowing conversion
+D:\ConsoleApplication4\GameProjectSDL2\main.cpp(423,66): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+D:\ConsoleApplication4\GameProjectSDL2\main.cpp(426,42): warning C4244: '-=': conversion from 'double' to 'float', possible loss of data
+D:\ConsoleApplication4\GameProjectSDL2\main.cpp(427,42): warning C4244: '+=': conversion from 'double' to 'float', possible loss of data
+D:\ConsoleApplication4\GameProjectSDL2\main.cpp(450,42): warning C4244: '+=': conversion from 'double' to 'float', possible loss of data
+D:\ConsoleApplication4\GameProjectSDL2\main.cpp(451,42): warning C4244: '-=': conversion from 'double' to 'float', possible loss of data
+D:\ConsoleApplication4\GameProjectSDL2\main.cpp(500,29): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+D:\ConsoleApplication4\GameProjectSDL2\main.cpp(504,58): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+  GameProjectSDL2.vcxproj -> D:\GameProjectSDL2\x64\Debug\GameProjectSDL2.exe

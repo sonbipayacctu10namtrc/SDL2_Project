@@ -18,7 +18,9 @@
 
 # Nguồn tham khảo
 - Image:
-- Ý tưởng code: nhiều nguồn 
+- Ý tưởng code: nhiều nguồn
+- Học code:
+  https://lazyfoo.net/tutorials/SDL/index.php
 
 > [!IMPORTANT]
 > Code vẫn còn một số lỗi đến giờ vẫn chưa fix được, mong mọi người thông cảm.

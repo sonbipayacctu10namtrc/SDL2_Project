@@ -26,11 +26,11 @@
 - Image:
 - Ý tưởng code: nhiều nguồn
 - Học code:
-  https://lazyfoo.net/tutorials/SDL/index.php
-  SDL2: https://www.youtube.com/watch?v=QQzAHcojEKg&list=PLhfAbcv9cehhkG7ZQK0nfIGJC_C-wSLrx
-        https://www.youtube.com/watch?v=KsG6dJlLBDw&list=PL2RPjWnJduNmXHRYwdtublIPdlqocBoLS
-        https://www.youtube.com/@PolyMars
-  C++: w3school, hackerrank, geeksforgeeks, 28tech
+  - https://lazyfoo.net/tutorials/SDL/index.php
+  - SDL2: - https://www.youtube.com/watch?v=QQzAHcojEKg&list=PLhfAbcv9cehhkG7ZQK0nfIGJC_C-wSLrx
+        - https://www.youtube.com/watch?v=KsG6dJlLBDw&list=PL2RPjWnJduNmXHRYwdtublIPdlqocBoLS
+        - https://www.youtube.com/@PolyMars
+  - C++: w3school, hackerrank, geeksforgeeks, 28tech
 
 > [!IMPORTANT]
 > Code vẫn còn một số lỗi đến giờ vẫn chưa fix được, mong mọi người thông cảm.

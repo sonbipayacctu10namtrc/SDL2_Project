@@ -6,13 +6,15 @@
 
 # Các thành phần
 - **Home Menu**: background, Quit button, Mute/UnMute Button, SinglePlayer (ấn vào để chơi ở chế độ đơn), Multiplayer (update sau)
+  ![HomeMenu](https://github.com/sonbipayacctu10namtrc/SDL2_Project/blob/main/ExPhoto/HomeMenuGame.png)
 - **Game Main**: có 3 màn chơi
   - ***map***: Đọc từ file txt, lấy các object và time cho mỗi màn.
   - ***object***: rock, gold, diamond với 3 kích cỡ cơ bản: nhỏ, vừa và lớn.
   - ***time***: lấy từ file txt, càng về map sau, thời gian càng ngắn.
   - ***Button***: pause / Unpause Button, Music Button, Quit Button, Home Menu Button.
-
+  ![GameMain](https://github.com/sonbipayacctu10namtrc/SDL2_Project/blob/main/ExPhoto/GameMain.png)
 - **Game Over**: hiện màn hình kết thúc trò chơi, hiện số điểm
+  ![GameOver](https://github.com/sonbipayacctu10namtrc/SDL2_Project/blob/main/ExPhoto/GameOverGame.png)
 
 # Nguồn tham khảo
 - Image:

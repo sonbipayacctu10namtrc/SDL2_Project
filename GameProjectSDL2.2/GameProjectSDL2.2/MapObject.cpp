@@ -57,7 +57,18 @@ void MapObject::add() {
 				std::pair<char, SDL_FRect> p = std::make_pair(kindOfObject, object);
 				m_board.push_back(p);
 			}
-
+			else if (kindOfObject == 'B') {
+				object.w = 40;
+				object.h = 40;
+				std::pair<char, SDL_FRect> p = std::make_pair(kindOfObject, object);
+				m_board.push_back(p);
+			}
+			else if (kindOfObject == '?') {
+				object.w = 30;
+				object.h = 30;
+				std::pair<char, SDL_FRect> p = std::make_pair(kindOfObject, object);
+				m_board.push_back(p);
+			}
 		}
 
 		file.get(kindOfObject); // for /n

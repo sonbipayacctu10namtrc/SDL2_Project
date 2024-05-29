@@ -1,4 +1,4 @@
-﻿#include <SDL.h>
+#include <SDL.h>
 #include <SDL_image.h>
 #include <SDL_ttf.h>
 #include <SDL_mixer.h>
@@ -19,7 +19,7 @@
 
 const int SCREEN_WIDTH = 800;
 const int SCREEN_HEIGHT = 600;
-const char* WINDOW_TITLE = "Hello World!";
+const char* WINDOW_TITLE = "Gold Miner!";
 
 const double MAX_ANGLE = 60;
 const int MAX_RANGE_CAN_REACH = 50;
@@ -108,7 +108,7 @@ int main(int argc, char* args[]) {
 	double angle = 0;
 	bool m_direction = true;
 	bool isReleased = false;
-	int mVel = 3;
+	float mVel = 3;
 	//int xm = w, ym = h;
 	float xmf1 = 1.0 * SCREEN_WIDTH / 2 /*- w*/, ymf1 = (float)HOOK_SPAWN;
 	float xmf = xmf1, ymf = ymf1;
@@ -148,12 +148,6 @@ int main(int argc, char* args[]) {
 	bool mouseOver = false;
 
 	while (!quit) {
-		//while (SDL_PollEvent(&e)) {
-		//	//just handle event , don't resolve any logic here
-		//	if (e.type == SDL_QUIT) quit = true;
-		//}
-		SDL_Texture* musicButton = (Mix_PausedMusic() == 1) ? texture[UNMUTEBUTTON] : texture[MUTEBUTTON];
-		SDL_Texture* GameButton = (paused) ? texture[RESUMEBUTTON] : texture[PAUSEBUTTON];
 		switch (status) {
 		case STATUS::Home_Menu:
 			//HomeMenu.handleHomeMenu(e, quit, status);
@@ -215,25 +209,25 @@ int main(int argc, char* args[]) {
 
 			SDL_RenderCopy(renderer, texture[SUMMARYMENU], nullptr, nullptr);
 			switch (mapLevel) {
-				case mapLevel::Level1:
-					renderText(renderer, 500, 100, "1", font60, color[YELLOW]);
-					renderText(renderer, SCREEN_WIDTH / 2 - 150, 300, "Target: 5000", font60, color[BLACK]);
-					map1 = mapLoad.getBoard();
-					timeInFile = mapLoad.getTime();
-					break;
-				case mapLevel::Level2:
-					renderText(renderer, 500, 100, "2", font60, color[YELLOW]);
-					renderText(renderer, SCREEN_WIDTH / 2 - 150, 300, "Target: 10000", font60, color[BLACK]);
-					renderText(renderer, SCREEN_WIDTH / 2 - 150, 360, "Keep going!", font60, color[BLACK]);
-					map1 = mapLoad2.getBoard();
-					timeInFile = mapLoad2.getTime();
-					break;
-				case mapLevel::Level3:
-					renderText(renderer, 500, 100, "3", font60, color[YELLOW]);
-					renderText(renderer, SCREEN_WIDTH / 2 - 150, 300, "Target: 15000", font32, color[BLACK]);
-					map1 = mapLoad3.getBoard();
-					timeInFile = mapLoad3.getTime();
-					break;
+			case mapLevel::Level1:
+				renderText(renderer, 500, 100, "1", font60, color[YELLOW]);
+				renderText(renderer, SCREEN_WIDTH / 2 - 150, 300, "Target: 5000", font60, color[BLACK]);
+				map1 = mapLoad.getBoard();
+				timeInFile = mapLoad.getTime();
+				break;
+			case mapLevel::Level2:
+				renderText(renderer, 500, 100, "2", font60, color[YELLOW]);
+				renderText(renderer, SCREEN_WIDTH / 2 - 150, 300, "Target: 10000", font60, color[BLACK]);
+				renderText(renderer, SCREEN_WIDTH / 2 - 150, 360, "Keep going!", font60, color[BLACK]);
+				map1 = mapLoad2.getBoard();
+				timeInFile = mapLoad2.getTime();
+				break;
+			case mapLevel::Level3:
+				renderText(renderer, 500, 100, "3", font60, color[YELLOW]);
+				renderText(renderer, SCREEN_WIDTH / 2 - 150, 300, "Target: 15000", font32, color[BLACK]);
+				map1 = mapLoad3.getBoard();
+				timeInFile = mapLoad3.getTime();
+				break;
 			}
 			/*renderText(renderer, 500, 100, "1", font60, color[YELLOW]);
 			renderText(renderer, SCREEN_WIDTH / 2 - 150, 300, "Target: 1000", font32, color[BLACK]);*/
@@ -250,7 +244,7 @@ int main(int argc, char* args[]) {
 
 		case STATUS::Play:
 			if (time == -1) time = SDL_GetTicks();
-			
+
 			tmp = (Uint32)timeInFile * 1000 + time - SDL_GetTicks();
 			while (SDL_PollEvent(&e)) {
 				//just handle event , don't resolve any logic here
@@ -287,6 +281,8 @@ int main(int argc, char* args[]) {
 							paused = false;
 
 						}
+						if (mouseInside(mouse, buttonHCN[RHomeButton]))
+							status = STATUS::Home_Menu;
 
 					}
 				}
@@ -296,67 +292,71 @@ int main(int argc, char* args[]) {
 			if ((int)tmp < 0) {
 				//if (!map1.size()) break;
 				switch (mapLevel) {
-					case mapLevel::Level1:
-						if (point < 5000) {
-							status = STATUS::Game_Over;
-							break;
-						}
-						else {
-							status = STATUS::Summary_Menu;
-							time = -1;
-							mapLevel = mapLevel::Level2;
-							angle = 0;
-							nonee = false;
-							m_direction = true;
-							isReleased = false;
-							xmf = xmf1;
-							ymf = ymf1;
-						}
-
+				case mapLevel::Level1:
+					if (point < 5000) {
+						status = STATUS::Game_Over;
 						break;
-					case mapLevel::Level2:
-						if (point < 10000) {
-							status = STATUS::Game_Over;
+					}
+					else {
+						status = STATUS::Summary_Menu;
+						time = -1;
+						mapLevel = mapLevel::Level2;
+						angle = 0;
+						nonee = false;
+						m_direction = true;
+						isReleased = false;
+						xmf = xmf1;
+						ymf = ymf1;
+					}
 
-						}
-						else {
-							status = STATUS::Summary_Menu;
-							time = -1;
-							mapLevel = mapLevel::Level3;
-							angle = 0;
-							nonee = false;
-							m_direction = true;
-							isReleased = false;
-							xmf = xmf1;
-							ymf = ymf1;
-						}
+					break;
+				case mapLevel::Level2:
+					if (point < 10000) {
+						status = STATUS::Game_Over;
 
-						break;
-					case mapLevel::Level3:
-						if (point < 15000) {
-							status = STATUS::Game_Over;
+					}
+					else {
+						status = STATUS::Summary_Menu;
+						time = -1;
+						mapLevel = mapLevel::Level3;
+						angle = 0;
+						nonee = false;
+						m_direction = true;
+						isReleased = false;
+						xmf = xmf1;
+						ymf = ymf1;
+					}
 
-						}
-						else {
-							win = true;
-						}
-
-						break;
+					break;
+				case mapLevel::Level3:
+					if (point < 15000) {
+						win = false;
+					}
+					else {
+						win = true;
+					}
+					status = STATUS::Game_Over;
+					break;
 				}
 
 			}
 			s = std::to_string((int)tmp / 1000);
 			pts = std::to_string(point);
 
+			if (mapLevel == mapLevel::Level1) pts += " / 5000";
+			else if (mapLevel == mapLevel::Level2) pts += " / 10000";
+			else pts += " / 15000";
+
 
 			SDL_RenderClear(renderer); //clear screen
 			SDL_RenderCopy(renderer, texture[LEVELBACKGROUND], nullptr, nullptr);
 
 			SDL_RenderCopy(renderer, texture[CLOCK], nullptr, &buttonHCN[RClock]);
+			SDL_RenderCopy(renderer, texture[COIN], nullptr, &buttonHCN[RCoin]);
 
 			renderText(renderer, 720, 0, s.c_str(), font24, color[GREEN]);
 
-			renderText(renderer, 0, 10, pts.c_str(), font24, color[GREEN]);
+			renderText(renderer, 230, 0, pts.c_str(), font24, color[GREEN]);
 
 			if (paused) {
 
@@ -365,7 +365,8 @@ int main(int argc, char* args[]) {
 					SDL_RenderCopy(renderer, texture[UNMUTEBUTTON], nullptr, &buttonHCN[RMusicButton]);
 				else
 					SDL_RenderCopy(renderer, texture[MUTEBUTTON], nullptr, &buttonHCN[RMusicButton]);
-				SDL_RenderCopy(renderer, GameButton, nullptr, &buttonHCN[RPauseButton]);
+				SDL_RenderCopy(renderer, texture[RESUMEBUTTON], nullptr, &buttonHCN[RResumeButton]);
+				SDL_RenderCopy(renderer, texture[HOMEBUTTON], nullptr, &buttonHCN[RHomeButton]);
 			}
 			else {
 				SDL_RenderCopy(renderer, texture[PAUSEBUTTON], nullptr, &buttonHCN[RPauseButton]);
@@ -382,6 +383,10 @@ int main(int argc, char* args[]) {
 				}
 				else if (map1[i].first == '#')
 					SDL_RenderCopyF(renderer, texture[DIAMOND], nullptr, &map1[i].second);
+				else if (map1[i].first == 'B')
+					SDL_RenderCopyF(renderer, texture[BARREL], nullptr, &map1[i].second);
+				else if (map1[i].first == '?')
+					SDL_RenderCopyF(renderer, texture[SURPRISEBAG], nullptr, &map1[i].second);
 				else SDL_RenderCopyF(renderer, texture[ROCK], nullptr, &map1[i].second);
 
 			}
@@ -420,7 +425,7 @@ int main(int argc, char* args[]) {
 			}
 			else {
 				SDL_Rect rect = { xmf - 57 * sin(angle * PI / 180) + 15, ymf + 15, 15, 15 };
-				SDL_RenderDrawRect(renderer, &rect);
+				//SDL_RenderDrawRect(renderer, &rect);
 				if (!nonee) {
 					xmf -= mVel * sin(angle * PI / 180) * 4;
 					ymf += mVel * cos(angle * PI / 180) * 4;
@@ -429,7 +434,22 @@ int main(int argc, char* args[]) {
 							nonee = true;
 							grab = true;
 							z = i;
-							mVel -= 1.5;
+							if (map1[i].first == 'B') {
+								SDL_Rect bomb = { map1[i].second.x - 40, map1[i].second.y - 40, map1[i].second.w + 80, map1[i].second.h + 80 };
+								for (int j = 0; j < (int)map1.size(); ++j) {
+									if (checkCollision(map1[j].second, bomb) && j != i) {
+										map1.erase(map1.begin() + j);
+									}
+								}
+							}
+							else if (map1[i].first == '1' || map1[i].first == '4' || map1[i].first == '#') {
+								mVel = 1.5;
+							}
+							else if (map1[i].first == '2' || map1[i].first == '5' || map1[i].first == '?') {
+								mVel = 1;
+							}
+							else mVel = 0.5;
+
 							break;
 						}
 					}
@@ -448,8 +468,9 @@ int main(int argc, char* args[]) {
 				}
 				if (xmf > SCREEN_WIDTH - 5 || ymf > SCREEN_HEIGHT - 25 || xmf < 10) {
 					nonee = true;
+					mVel = 3;
 				}
-				else if (/*!cnt*/ (abs(xmf1 - xmf) < 0.01) && (abs(ymf1 - ymf) < 0.01)) {
+				else if ((abs(xmf1 - xmf) < 0.01) && (abs(ymf1 - ymf) < 0.01)) {
 					nonee = false;
 					ymf = (float)HOOK_SPAWN;
 					xmf = 1.0 * SCREEN_WIDTH / 2;
@@ -479,6 +500,19 @@ int main(int argc, char* args[]) {
 						case '#':
 							point += 1000;
 							break;
+						case '?':
+							int t = rand() % 3;
+							switch (t) {
+							case 1:
+								point += 1000;
+								break;
+							case 2:
+								point += 1500;
+								break;
+							case 3:
+								point += 2000;
+								break;
+							}
 						}
 						map1.erase(map1.begin() + z);
 						z = -1;
@@ -500,6 +534,11 @@ int main(int argc, char* args[]) {
 					}
 					else if (map1[z].first == '#')
 						SDL_RenderCopyF(renderer, texture[DIAMOND], nullptr, &currentObject);
+					else if (map1[z].first == 'B') {
+						continue;
+					}
+					else if (map1[z].first == '?')
+						SDL_RenderCopyF(renderer, texture[SURPRISEBAG], nullptr, &currentObject);
 					else SDL_RenderCopyF(renderer, texture[ROCK], nullptr, &currentObject);
 				}
 				float lineLength = sqrt((SCREEN_WIDTH / 2 - xmf) * (SCREEN_WIDTH / 2 - xmf) + ymf * ymf) - 60;
@@ -536,7 +575,7 @@ int main(int argc, char* args[]) {
 						m_direction = true;
 						isReleased = false;
 						point = 0;
-						xmf = xmf1; 
+						xmf = xmf1;
 						ymf = ymf1;
 						break;
 					}
@@ -546,12 +585,14 @@ int main(int argc, char* args[]) {
 			SDL_RenderClear(renderer);
 			SDL_RenderCopy(renderer, texture[GAMEOVERMENU], nullptr, nullptr);
 			if (!win) {
-				renderText(renderer, SCREEN_WIDTH / 2 - 150, 350, "Game Over", font32, color[BLACK]);
-				renderText(renderer, SCREEN_WIDTH / 2 - 150, 400, ("Point: " + std::to_string(point)).c_str(), font32, color[BLACK]);
+				renderText(renderer, SCREEN_WIDTH / 2 - 150, 300, "Game Over, You Lose", font32, color[BLACK]);
+				renderText(renderer, SCREEN_WIDTH / 2 - 150, 350, "Press ESC to quit", font32, color[BLACK]);
+				renderText(renderer, SCREEN_WIDTH / 2 - 150, 400, "Press ENTER to play again", font32, color[BLACK]);
 			}
 			else {
 				SDL_RenderCopy(renderer, texture[GAMEOVERBACK], nullptr, &buttonHCN[RGameOverBack]);
 			}
+			renderText(renderer, SCREEN_WIDTH / 2 - 150, 450, ("Score: " + std::to_string(point)).c_str(), font32, color[BLACK]);
 			break;
 
 		}
@@ -566,6 +607,6 @@ int main(int argc, char* args[]) {
 	}
 
 	clearWin(window, renderer);
-
+	//done
 	return 0;
 }

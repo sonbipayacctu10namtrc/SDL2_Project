@@ -91,7 +91,7 @@ void imagerotated(SDL_Texture* img, SDL_Renderer* renderer, int x, int y, double
 	destR.h /= 1.5;
 	SDL_Point ss = { destR.w / 2, 0 };
 	SDL_RenderCopyEx(renderer, img, NULL, &destR, angle, &ss, SDL_FLIP_NONE);
-	
+
 }
 
 void imagerotatedF(SDL_Texture* img, SDL_Renderer* renderer, double x, double y, double angle) {
@@ -102,7 +102,7 @@ void imagerotatedF(SDL_Texture* img, SDL_Renderer* renderer, double x, double y,
 	SDL_FRect destRF = { x , y, (double)destR.w, (double)destR.h };
 	SDL_FPoint ss = { 1.0 * destR.w / 2, 0 };
 	SDL_RenderDrawRectF(renderer, &destRF);
-	
+
 	SDL_RenderCopyExF(renderer, img, NULL, &destRF, angle, &ss, SDL_FLIP_NONE);
 	//std::cout << x << ' ' << y << std::endl;
 }

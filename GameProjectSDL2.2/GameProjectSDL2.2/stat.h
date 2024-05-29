@@ -31,10 +31,13 @@ std::vector<std::string> path = { "Images/HomeMenu.png",
 								"Images/light.png" ,
 								"Images/Clock.png",
 								"Images/Coin.png",
-								"Images/GameOverBack.png"
+								"Images/GameOverBack.png",
+								"Images/HomeButton.png",
+								"Images/Barrel.png",
+								"Images/SurpriseBag.png"
 };
 
-const int numOfPath = 20;
+const int numOfPath = 23;
 
 std::vector<SDL_Texture*> texture(numOfPath);
 
@@ -58,7 +61,10 @@ enum namePic {
 	LIGHT,
 	CLOCK,
 	COIN,
-	GAMEOVERBACK
+	GAMEOVERBACK,
+	HOMEBUTTON,
+	BARREL,
+	SURPRISEBAG
 };
 
 std::vector<SDL_Color> color = { {0x21, 0xd0, 0x1d}, { 255, 255, 0 }, { 0, 0, 0 } };
@@ -73,7 +79,7 @@ enum colorType {
 
 std::vector<std::string> map = { "Levels/Level1.txt",
 								 "Levels/Level2.txt",
-								 "Levels/Level3.txt"};
+								 "Levels/Level3.txt" };
 
 const int numOfMap = 3;
 
@@ -83,19 +89,20 @@ enum mapLevel {
 	Level3
 };
 
-std::vector<SDL_Rect> buttonHCN = { { /*SCREEN_WIDTH / 2*/ 400, 300, 50, 50 },
+std::vector<SDL_Rect> buttonHCN = { { 775, 35, 25, 25 },
 									{ 745, 20, 45, 45 },
-									{ /*SCREEN_WIDTH / 2*/ 400 + 30, 300, 50, 50 },
+									{ 750, 35, 25, 25 },
 									{ 700, 20, 45, 45 },
 									{ 775, 10, 25, 25 },
-									{ 450, 80, 50, 50 },
+									{ 725, 35, 25, 25 },
 									{ 100, 170, 410 / 5 * 2, 410 / 5 * 2 },
 									{ 675, 0, 100, 129 / 3 },
-									{ 10, 10, 10, 10},
-									{ 300, 300, 300, 200}
+									{ 200, 10, 20, 20},
+									{ 100, 50, 600, 400},
+									{ 700, 35, 25, 25}
 };
 
-const int numOfButtonRect = 8;
+const int numOfButtonRect = 10;
 
 enum ButtonType {
 	RquitButton,
@@ -106,8 +113,9 @@ enum ButtonType {
 	RResumeButton,
 	RSinglePlayerBtn,
 	RClock,
-	Coin,
-	RGameOverBack
+	RCoin,
+	RGameOverBack,
+	RHomeButton
 };
 
 //SDL_Rect RquitButton = { SCREEN_WIDTH / 2, 300, 50, 50 };

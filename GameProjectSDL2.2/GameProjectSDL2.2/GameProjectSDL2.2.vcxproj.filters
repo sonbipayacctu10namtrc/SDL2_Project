@@ -15,42 +15,42 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\ConsoleApplication4\GameProjectSDL2\HomeMenu.cpp">
+    <ClCompile Include="main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\ConsoleApplication4\GameProjectSDL2\main.cpp">
+    <ClCompile Include="HomeMenu.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\ConsoleApplication4\GameProjectSDL2\MapObject.cpp">
+    <ClCompile Include="RenderWindow.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\ConsoleApplication4\GameProjectSDL2\mouseInside.cpp">
+    <ClCompile Include="SummaryMenu.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\ConsoleApplication4\GameProjectSDL2\RenderWindow.cpp">
+    <ClCompile Include="mouseInside.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\ConsoleApplication4\GameProjectSDL2\SummaryMenu.cpp">
+    <ClCompile Include="MapObject.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\ConsoleApplication4\GameProjectSDL2\HomeMenu.h">
+    <ClInclude Include="HomeMenu.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\ConsoleApplication4\GameProjectSDL2\MapObject.h">
+    <ClInclude Include="RenderWindow.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\ConsoleApplication4\GameProjectSDL2\mouseInside.h">
+    <ClInclude Include="SummaryMenu.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\ConsoleApplication4\GameProjectSDL2\RenderWindow.h">
+    <ClInclude Include="mouseInside.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\ConsoleApplication4\GameProjectSDL2\stat.h">
+    <ClInclude Include="MapObject.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\ConsoleApplication4\GameProjectSDL2\SummaryMenu.h">
+    <ClInclude Include="stat.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

@@ -21,8 +21,8 @@
   <PropertyGroup Label="Globals">
     <VCProjectVersion>17.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
-    <ProjectGuid>{305cb6f2-f07b-44f0-9c8d-5356394a1fc0}</ProjectGuid>
-    <RootNamespace>GameProjectSDL2</RootNamespace>
+    <ProjectGuid>{01fd3e98-e99f-49ee-a5f2-5e0a518b24d1}</ProjectGuid>
+    <RootNamespace>GameProjectSDL22</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -104,13 +104,13 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>D:\GameProjectSDL2\SDL2\SDL2_mixer-2.8.0\include;D:\GameProjectSDL2\SDL2\SDL2_ttf-2.22.0\include;D:\GameProjectSDL2\SDL2\SDL2_image-2.8.2\include;D:\GameProjectSDL2\SDL2\SDL2-2.30.1\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>D:\SDL2_Project\GameProjectSDL2.2\SDL2\SDL2_mixer-2.8.0\include;D:\SDL2_Project\GameProjectSDL2.2\SDL2\SDL2_ttf-2.22.0\include;D:\SDL2_Project\GameProjectSDL2.2\SDL2\SDL2_image-2.8.2\include;D:\SDL2_Project\GameProjectSDL2.2\SDL2\SDL2-2.30.1\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>D:\GameProjectSDL2\SDL2\SDL2_mixer-2.8.0\lib\x64;D:\GameProjectSDL2\SDL2\SDL2_ttf-2.22.0\lib\x64;D:\GameProjectSDL2\SDL2\SDL2_image-2.8.2\lib\x64;D:\GameProjectSDL2\SDL2\SDL2-2.30.1\lib\x64;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>SDL2.lib;SDL2main.lib;SDL2test.lib;SDL2_image.lib;SDL2_ttf.lib;SDL2_mixer.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>D:\SDL2_Project\GameProjectSDL2.2\SDL2\SDL2_mixer-2.8.0\lib\x64;D:\SDL2_Project\GameProjectSDL2.2\SDL2\SDL2_ttf-2.22.0\lib\x64;D:\SDL2_Project\GameProjectSDL2.2\SDL2\SDL2_image-2.8.2\lib\x64;D:\SDL2_Project\GameProjectSDL2.2\SDL2\SDL2-2.30.1\lib\x64;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>SDL2.lib;SDL2main.lib;SDL2_image.lib;SDL2_mixer.lib;SDL2_ttf.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -130,20 +130,20 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\ConsoleApplication4\GameProjectSDL2\HomeMenu.cpp" />
-    <ClCompile Include="..\..\ConsoleApplication4\GameProjectSDL2\main.cpp" />
-    <ClCompile Include="..\..\ConsoleApplication4\GameProjectSDL2\MapObject.cpp" />
-    <ClCompile Include="..\..\ConsoleApplication4\GameProjectSDL2\mouseInside.cpp" />
-    <ClCompile Include="..\..\ConsoleApplication4\GameProjectSDL2\RenderWindow.cpp" />
-    <ClCompile Include="..\..\ConsoleApplication4\GameProjectSDL2\SummaryMenu.cpp" />
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="HomeMenu.cpp" />
+    <ClCompile Include="MapObject.cpp" />
+    <ClCompile Include="mouseInside.cpp" />
+    <ClCompile Include="RenderWindow.cpp" />
+    <ClCompile Include="SummaryMenu.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\ConsoleApplication4\GameProjectSDL2\HomeMenu.h" />
-    <ClInclude Include="..\..\ConsoleApplication4\GameProjectSDL2\MapObject.h" />
-    <ClInclude Include="..\..\ConsoleApplication4\GameProjectSDL2\mouseInside.h" />
-    <ClInclude Include="..\..\ConsoleApplication4\GameProjectSDL2\RenderWindow.h" />
-    <ClInclude Include="..\..\ConsoleApplication4\GameProjectSDL2\stat.h" />
-    <ClInclude Include="..\..\ConsoleApplication4\GameProjectSDL2\SummaryMenu.h" />
+    <ClInclude Include="HomeMenu.h" />
+    <ClInclude Include="MapObject.h" />
+    <ClInclude Include="mouseInside.h" />
+    <ClInclude Include="RenderWindow.h" />
+    <ClInclude Include="stat.h" />
+    <ClInclude Include="SummaryMenu.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

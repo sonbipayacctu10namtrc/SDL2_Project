@@ -103,6 +103,9 @@ int main(int argc, char* args[]) {
 
 	Mix_Music* musik = Mix_LoadMUS("Sounds/BackgroundMusic.ogg");
 
+	Mix_Chunk* coin = Mix_LoadWAV("Sounds/GetReward.ogg");
+	Mix_Chunk* explode = Mix_LoadWAV("Sounds/Explosion.ogg");
+
 	SDL_Event e;
 	bool quit = false;
 	double angle = 0;
@@ -436,6 +439,7 @@ int main(int argc, char* args[]) {
 							z = i;
 							if (map1[i].first == 'B') {
 								SDL_Rect bomb = { map1[i].second.x - 40, map1[i].second.y - 40, map1[i].second.w + 80, map1[i].second.h + 80 };
+								Mix_PlayChannel(-1, explode, 0);
 								for (int j = 0; j < (int)map1.size(); ++j) {
 									if (checkCollision(map1[j].second, bomb) && j != i) {
 										map1.erase(map1.begin() + j);
@@ -514,8 +518,11 @@ int main(int argc, char* args[]) {
 								break;
 							}
 						}
+						if (map1[z].first != 'B')
+							Mix_PlayChannel(-1, coin, 0);
 						map1.erase(map1.begin() + z);
 						z = -1;
+						
 					}
 				}
 				imagerotated(texture[HOOK], renderer, (int)xmf + 10, (int)ymf, angle);
